@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cinematic guide to astronaut health systems in space habitats. Exercise, sleep, nutrition, medical care, mental well-being, and radiation protection.">
+  <title>AETHER · Health Center | Astronaut Wellness in Orbit</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="starfield" aria-hidden="true"></div>
+  <canvas id="ambient-particles" aria-hidden="true"></canvas>
+
+  <!-- HERO -->
+  <header class="hero" id="hero">
+    <div class="parallax-layer earth" aria-hidden="true"></div>
+    <div class="parallax-layer habitat-glow" aria-hidden="true"></div>
+    <div class="parallax-layer spacecraft-orbit" aria-hidden="true">
+      <svg class="spacecraft" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="hull" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#7ec8ff"/>
+            <stop offset="50%" stop-color="#c8e6ff"/>
+            <stop offset="100%" stop-color="#4aa0e8"/>
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <rect x="40" y="40" width="160" height="40" rx="8" fill="url(#hull)" stroke="#00d4ff" stroke-width="1.5" filter="url(#glow)"/>
+        <rect x="70" y="28" width="50" height="18" rx="4" fill="#0a2030" stroke="#00d4ff" stroke-width="1"/>
+        <rect x="130" y="28" width="50" height="18" rx="4" fill="#0a2030" stroke="#00d4ff" stroke-width="1"/>
+        <rect x="10" y="48" width="28" height="24" rx="2" fill="#081828" stroke="#4af" stroke-width="1"/>
+        <rect x="202" y="48" width="28" height="24" rx="2" fill="#081828" stroke="#4af" stroke-width="1"/>
+        <circle cx="85" cy="60" r="5" fill="#00d4ff" opacity="0.95"/>
+        <circle cx="110" cy="60" r="5" fill="#00d4ff" opacity="0.95"/>
+        <circle cx="135" cy="60" r="5" fill="#00d4ff" opacity="0.95"/>
+        <circle cx="160" cy="60" r="5" fill="#00d4ff" opacity="0.95"/>
+        <rect x="200" y="52" width="20" height="16" rx="2" fill="#234" stroke="#00d4ff"/>
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <p class="eyebrow">HABITAT HEALTH SYSTEMS · ORBITAL WELLNESS</p>
+      <h1 class="title">
+        <span class="line">HEALTH</span>
+        <span class="line accent">IN THE VOID</span>
+      </h1>
+      <p class="subtitle">How astronauts stay strong, rested, and healthy while living in space</p>
+      <button class="cta" id="explore-btn">Enter the Health Center</button>
+    </div>
+
+    <div class="scroll-indicator" aria-hidden="true">
+      <span>SCROLL TO BEGIN</span>
+      <div class="chevron"></div>
+    </div>
+  </header>
+
+  <nav class="main-nav" id="main-nav" aria-label="Section navigation">
+    <a href="#body">Body Systems</a>
+    <a href="#exercise">Exercise</a>
+    <a href="#sleep">Sleep & Nutrition</a>
+    <a href="#dashboard">Wellness Dashboard</a>
+    <a href="#medical">Medical Care</a>
+    <a href="#mental">Mental Well-Being</a>
+    <a href="#radiation">Radiation</a>
+    <a href="#future">Current vs Future</a>
+  </nav>
+
+  <main>
+    <!-- BODY SYSTEMS -->
+    <section id="body" class="scene">
+      <div class="scene-inner">
+        <h2>How Microgravity Affects the Body</h2>
+        <p class="lead">Without the constant pull of Earth’s gravity, the body begins to change. Click any system on the diagram to learn more.</p>
+        <div class="diagram-container">
+          <svg class="system-svg body-svg" viewBox="0 0 400 520" xmlns="http://www.w3.org/2000/svg">
+            <g class="node" data-info="muscles">
+              <ellipse cx="200" cy="280" rx="55" ry="90" class="body-part"/>
+              <text x="200" y="285" text-anchor="middle">Muscles</text>
+            </g>
+            <g class="node" data-info="bones">
+              <rect x="175" y="150" width="50" height="120" rx="8" class="body-part"/>
+              <text x="200" y="215" text-anchor="middle">Bones</text>
+            </g>
+            <g class="node" data-info="circulation">
+              <circle cx="200" cy="120" r="28" class="body-part"/>
+              <text x="200" y="125" text-anchor="middle">Circulation</text>
+            </g>
+            <g class="node" data-info="balance">
+              <circle cx="200" cy="95" r="18" class="body-part"/>
+              <text x="200" y="99" text-anchor="middle" class="small">Balance</text>
+            </g>
+            <g class="node" data-info="vision">
+              <circle cx="185" cy="105" r="6" class="body-part eye"/>
+              <circle cx="215" cy="105" r="6" class="body-part eye"/>
+              <text x="200" y="70" text-anchor="middle" class="small">Vision</text>
+            </g>
+          </svg>
+          <div class="info-panel" id="body-info">
+            <h3>Select a system</h3>
+            <p>Click any highlighted area to see how microgravity can affect that part of the body and how astronauts respond.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXERCISE -->
+    <section id="exercise" class="scene dark">
+      <div class="scene-inner">
+        <h2>Exercise System</h2>
+        <p class="lead">Astronauts exercise about two hours every day to protect muscles, bones, and cardiovascular fitness.</p>
+        <div class="cards">
+          <article class="info-card">
+            <h3>Treadmill (T2)</h3>
+            <p>A harness loads the body so running feels more like Earth. This helps maintain bone density and leg strength. Vibration isolation keeps the exercise from shaking the station.</p>
+          </article>
+          <article class="info-card">
+            <h3>Cycle Ergometer (CEVIS)</h3>
+            <p>Used for aerobic conditioning. Astronauts pedal while restrained so they stay in place. Protocols are based on pre-flight fitness tests.</p>
+          </article>
+          <article class="info-card">
+            <h3>Advanced Resistive Exercise Device (ARED)</h3>
+            <p>Provides resistance training that mimics free weights. Crew members perform squats, deadlifts, rows, and other moves to protect muscles and bones.</p>
+          </article>
+          <article class="info-card">
+            <h3>Daily Routine</h3>
+            <p>Typical plan mixes resistance and aerobic work six days a week. Exercise is the primary countermeasure against the “use it or lose it” effects of microgravity.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLEEP & NUTRITION -->
+    <section id="sleep" class="scene">
+      <div class="scene-inner">
+        <h2>Sleep & Nutrition</h2>
+        <div class="two-col">
+          <div class="text-block">
+            <h3>Sleep</h3>
+            <p>Each crew member has a small private quarter. A sleeping bag is tethered so the person does not float away. Eye masks and earplugs help block light and constant fan noise. Lighting is adjusted to support circadian rhythms even with 16 sunrises a day.</p>
+            <h3>Nutrition</h3>
+            <p>Meals are carefully planned to supply enough calories, protein, calcium, and vitamin D. Proper nutrition supports bone health, muscle repair, and overall energy. Water is recycled and monitored closely.</p>
+          </div>
+          <div class="text-block">
+            <h3>Why It Matters</h3>
+            <p>Without good sleep and nutrition, the benefits of exercise are reduced. Consistent routines also help crew members manage the stress of a confined, high-workload environment.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="scene dark">
+      <div class="scene-inner">
+        <h2>Wellness Dashboard</h2>
+        <p class="lead"><strong>Illustrative sample values only — not real medical data.</strong> These readings show the kinds of metrics a habitat health system might track.</p>
+        <div class="dashboard">
+          <div class="gauge-card">
+            <div class="gauge" data-value="120" data-max="180">
+              <span class="gauge-value">120<span>min</span></span>
+            </div>
+            <h3>Daily Exercise</h3>
+            <p>Target ~120 minutes</p>
+          </div>
+          <div class="gauge-card">
+            <div class="gauge" data-value="7.5" data-max="9">
+              <span class="gauge-value">7.5<span>h</span></span>
+            </div>
+            <h3>Sleep</h3>
+            <p>Illustrative average</p>
+          </div>
+          <div class="gauge-card">
+            <div class="gauge hydration" data-value="2.4" data-max="3.5">
+              <span class="gauge-value">2.4<span>L</span></span>
+            </div>
+            <h3>Hydration</h3>
+            <p>Sample daily intake</p>
+          </div>
+          <div class="gauge-card">
+            <div class="gauge nutrition" data-value="92" data-max="100">
+              <span class="gauge-value">92<span>%</span></span>
+            </div>
+            <h3>Nutrition Score</h3>
+            <p>Illustrative compliance</p>
+          </div>
+          <div class="gauge-card">
+            <div class="gauge stress" data-value="3.2" data-max="10">
+              <span class="gauge-value">3.2<span>/10</span></span>
+            </div>
+            <h3>Stress Level</h3>
+            <p>Sample self-report</p>
+          </div>
+          <div class="gauge-card wide">
+            <div class="status-bar">
+              <span class="status-dot"></span>
+              <span>Overall Status: Nominal (Illustrative)</span>
+            </div>
+            <p>All sample indicators within expected ranges for a healthy crew member</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDICAL CARE -->
+    <section id="medical" class="scene">
+      <div class="scene-inner">
+        <h2>Medical Care Station</h2>
+        <div class="cards">
+          <article class="info-card">
+            <h3>Onboard Monitoring</h3>
+            <p>Crew members regularly check vital signs, perform ultrasound scans, and complete health questionnaires. Data is reviewed by flight surgeons on the ground.</p>
+          </article>
+          <article class="info-card">
+            <h3>Medical Supplies</h3>
+            <p>The station carries a pharmacy of medications, bandages, IV supplies, airway tools, and a defibrillator. Ultrasound is the main imaging tool because there is no X-ray or MRI.</p>
+          </article>
+          <article class="info-card">
+            <h3>Remote Guidance</h3>
+            <p>There is usually no physician on board. A trained crew medical officer works with flight surgeons on Earth via secure video links for diagnosis and treatment decisions.</p>
+          </article>
+          <article class="info-card">
+            <h3>Emergency Care</h3>
+            <p>Procedures exist for serious illness or injury. In low Earth orbit, a crew member can be returned to Earth if needed. Future deep-space missions will require more autonomous care.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENTAL WELL-BEING -->
+    <section id="mental" class="scene dark">
+      <div class="scene-inner">
+        <h2>Mental Well-Being Space</h2>
+        <p class="lead">Isolation, confinement, and distance from family create unique challenges. Habitat design and daily practices help protect mental health.</p>
+        <div class="cards">
+          <article class="info-card">
+            <h3>Privacy</h3>
+            <p>Private sleep quarters give each person a place to rest and store personal items. This small personal space is important for long missions.</p>
+          </article>
+          <article class="info-card">
+            <h3>Routines & Recreation</h3>
+            <p>Regular schedules, exercise, movies, music, reading, and looking at Earth from the windows help mark time and reduce stress.</p>
+          </article>
+          <article class="info-card">
+            <h3>Communication</h3>
+            <p>Scheduled video calls and messages with family and friends are among the strongest supports for crew morale.</p>
+          </article>
+          <article class="info-card">
+            <h3>Crew Support</h3>
+            <p>Shared meals, group activities, and open communication among the crew build cohesion and help people manage difficult days.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RADIATION -->
+    <section id="radiation" class="scene">
+      <div class="scene-inner">
+        <h2>Radiation Protection</h2>
+        <div class="two-col">
+          <div>
+            <h3>Habitat Shielding</h3>
+            <p>The station’s structure and equipment provide some protection from galactic cosmic rays and trapped particles. In low Earth orbit the geomagnetic field also helps. Personal dosimeters track each crew member’s exposure.</p>
+            <h3>Monitoring</h3>
+            <p>Radiation sensors inside the modules continuously measure dose rates. Ground teams watch solar activity and can warn the crew of approaching solar particle events.</p>
+          </div>
+          <div>
+            <h3>Solar Events</h3>
+            <p>During a strong solar particle event, crew members can move to better-shielded areas and rearrange water containers or other mass for extra protection. Procedures are practiced before flight.</p>
+            <h3>Limits</h3>
+            <p>Career dose limits help protect long-term health. Future missions beyond Earth’s magnetic field will need stronger shielding and better forecasting.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURRENT VS FUTURE -->
+    <section id="future" class="scene dark">
+      <div class="scene-inner">
+        <h2>Established Practices vs Future Concepts</h2>
+        <div class="comparison">
+          <div class="comp-col current">
+            <h3>Current (ISS & Near-Term)</h3>
+            <ul>
+              <li>~2 hours daily exercise (ARED, treadmill, cycle)</li>
+              <li>Private sleep quarters and circadian lighting</li>
+              <li>Telemedicine with flight surgeons on Earth</li>
+              <li>Onboard pharmacy, ultrasound, and emergency kits</li>
+              <li>Personal dosimeters and solar-event procedures</li>
+              <li>Regular health monitoring and nutrition planning</li>
+            </ul>
+          </div>
+          <div class="comp-col future">
+            <h3>Future Concepts</h3>
+            <ul>
+              <li>More autonomous medical systems for deep space</li>
+              <li>Improved exercise hardware with less time and mass</li>
+              <li>Better radiation shelters and wearable shielding</li>
+              <li>Artificial gravity or hybrid countermeasures</li>
+              <li>Enhanced mental-health tools for multi-year missions</li>
+              <li>Still based on proven exercise, monitoring, and crew support</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">Future habitats will need to keep crews healthy for months or years with limited or delayed support from Earth, while building on the systems that already work on the International Space Station.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>AETHER Health Center · Educational visualization of astronaut health systems</p>
+    <p class="small">Based on publicly documented ISS crew health practices and research. Sample dashboard values are illustrative only. Not an official NASA product or medical advice.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>s
